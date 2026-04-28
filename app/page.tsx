@@ -4,164 +4,183 @@ import ProductCard from "@/components/ProductCard";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Home",
+  title: "NextGrid Lifestyle – Premium Men's Fashion",
   description:
-    "Explore NextGrid Lifestyle – premium men's fashion, streetwear, and modern essentials designed for confident living.",
+    "Luxury men's fashion, streetwear, and timeless essentials crafted for modern identity.",
 };
 
 export default function Home() {
   return (
-    <main>
+    <main className="relative text-black overflow-hidden">
 
-      {/* 🔥 HERO */}
-      <section className="relative min-h-[95vh] flex items-center justify-center text-white overflow-hidden">
-
+      {/* 🌅 LIGHT PREMIUM BACKGROUND */}
+      <div className="fixed inset-0 -z-10">
         <Image
-          src="https://images.unsplash.com/photo-1520975922284-9e0ce8278c3a?auto=format&fit=crop&w=1600&q=80"
-          alt="NextGrid modern men's fashion lifestyle"
+          src="https://images.unsplash.com/photo-1490578474895-699cd4e2cf59?q=80&w=2070"
+          alt="men fashion editorial"
           fill
           priority
           unoptimized
-          className="object-cover scale-110"
+          className="object-cover"
         />
 
-        {/* PREMIUM OVERLAY */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/90" />
+        {/* SOFT LIGHT OVERLAY (NOT BLACK) */}
+        <div className="absolute inset-0 bg-white/60 backdrop-blur-sm" />
+      </div>
 
-        {/* CONTENT */}
-        <div className="relative z-10 text-center px-6 max-w-4xl">
-          <h1 className="text-4xl md:text-7xl font-extrabold mb-6 leading-tight tracking-tight">
-            Redefine <span className="text-white/80">Modern Style</span>
+      {/* 🔥 HERO */}
+      <section className="min-h-screen flex items-center justify-center text-center px-6">
+        <div className="max-w-5xl">
+
+          <h1 className="text-5xl md:text-7xl font-extrabold mb-6 text-black">
+            Elevate Your <span className="text-gray-600">Style</span>
           </h1>
 
-          <p className="text-lg md:text-xl text-gray-300 mb-10">
-            Crafted for confidence, identity, and timeless elegance.
+          <p className="text-gray-700 mb-10 text-lg">
+            Built for modern men who lead with confidence.
           </p>
 
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
+          <div className="flex justify-center gap-4 flex-wrap">
             <Link
               href="/shop"
-              className="bg-white text-black px-8 py-3 rounded-xl font-semibold hover:scale-105 transition shadow-lg"
+              className="bg-black text-white px-10 py-4 rounded-xl font-semibold hover:scale-105 transition"
             >
               Shop Now
             </Link>
 
             <Link
-              href="/blog"
-              className="border border-white px-8 py-3 rounded-xl hover:bg-white hover:text-black transition"
+              href="/collections"
+              className="border border-black px-10 py-4 rounded-xl hover:bg-black hover:text-white transition"
             >
-              Explore Trends
+              Collections
             </Link>
           </div>
-        </div>
 
-        {/* SCROLL INDICATOR */}
-        <div className="absolute bottom-6 text-xs text-gray-400 animate-bounce">
-          Scroll ↓
         </div>
       </section>
 
-      {/* 🛍️ TRENDING */}
-      <section className="max-w-7xl mx-auto px-6 py-24">
-        <div className="flex justify-between items-center mb-14">
-          <h2 className="text-4xl font-bold tracking-tight">
-            Trending Collection
-          </h2>
+      {/* 🧥 CATEGORY */}
+      <section className="max-w-7xl mx-auto px-6 py-28">
+        <h2 className="text-4xl font-bold text-center mb-16 text-black">
+          Shop Categories
+        </h2>
 
-          <Link href="/shop" className="text-sm underline">
+        <div className="grid md:grid-cols-3 gap-10">
+          {["Essentials", "Streetwear", "Luxury"].map((cat, i) => (
+            <div
+              key={i}
+              className="relative h-[420px] rounded-3xl overflow-hidden group"
+            >
+              <Image
+                src={`https://source.unsplash.com/600x800/?men,${cat},fashion`}
+                alt={cat}
+                fill
+                className="object-cover group-hover:scale-110 transition duration-700"
+              />
+
+              <div className="absolute inset-0 bg-white/20 group-hover:bg-white/10 transition" />
+
+              <div className="absolute bottom-6 left-6 text-black">
+                <h3 className="text-2xl font-bold">{cat}</h3>
+                <p className="text-sm opacity-70">Explore →</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 🔥 TRENDING */}
+      <section className="max-w-7xl mx-auto px-6 py-28">
+        <div className="flex justify-between items-center mb-16">
+          <h2 className="text-4xl font-bold text-black">Trending Now</h2>
+          <Link href="/shop" className="underline text-sm text-black">
             View All →
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10">
           <ProductCard name="Denim Jacket" price="₹2499" />
           <ProductCard name="Classic Shirt" price="₹1499" />
-          <ProductCard name="Sneakers" price="₹2999" />
-        </div>
-      </section>
-
-      {/* 💎 LUXURY FEATURE STRIP */}
-      <section className="bg-gradient-to-r from-gray-50 to-gray-100 py-24">
-        <div className="max-w-5xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold mb-6">
-            Minimal. Bold. Timeless.
-          </h2>
-
-          <p className="text-gray-600 text-lg leading-relaxed mb-10">
-            NextGrid Lifestyle isn’t just fashion — it’s identity.
-            Every design reflects modern masculinity and refined simplicity.
-          </p>
-
-          <Link
-            href="/shop"
-            className="bg-black text-white px-8 py-3 rounded-xl hover:opacity-90 transition"
-          >
-            Explore Collection
-          </Link>
-        </div>
-      </section>
-
-      {/* 🔥 FEATURED */}
-      <section className="max-w-7xl mx-auto px-6 py-24">
-        <h2 className="text-4xl font-bold mb-14 text-center">
-          Featured Picks
-        </h2>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
-          <ProductCard name="Leather Jacket" price="₹4999" />
-          <ProductCard name="Minimal Watch" price="₹2999" />
-          <ProductCard name="Slim Fit Jeans" price="₹1999" />
           <ProductCard name="Urban Sneakers" price="₹3499" />
         </div>
       </section>
 
-      {/* 🧠 TRUST */}
-      <section className="bg-black text-white py-24">
-        <div className="max-w-6xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold mb-12">
-            Why NextGrid?
+      {/* 💎 STORY */}
+      <section className="py-32 text-center px-6">
+        <div className="max-w-4xl mx-auto">
+
+          <h2 className="text-4xl font-bold mb-6 text-black">
+            Designed for Identity
           </h2>
 
-          <div className="grid md:grid-cols-3 gap-12 text-gray-300">
-            <div>
-              <h3 className="text-white font-semibold mb-3">
-                Premium Quality
-              </h3>
-              <p>Crafted with precision and premium fabrics.</p>
-            </div>
+          <p className="text-gray-700 mb-10 leading-relaxed">
+            This isn’t just clothing — it’s a reflection of who you are.
+            Minimal. Bold. Timeless.
+          </p>
 
-            <div>
-              <h3 className="text-white font-semibold mb-3">
-                Modern Design
-              </h3>
-              <p>Clean aesthetics with bold identity.</p>
-            </div>
+          <Link
+            href="/about"
+            className="bg-black text-white px-8 py-3 rounded-xl hover:scale-105 transition"
+          >
+            Our Story
+          </Link>
 
-            <div>
-              <h3 className="text-white font-semibold mb-3">
-                Fast Delivery
-              </h3>
-              <p>Quick & reliable shipping across India.</p>
-            </div>
+        </div>
+      </section>
+
+      {/* 🔥 FEATURED */}
+      <section className="max-w-7xl mx-auto px-6 py-28">
+        <h2 className="text-4xl font-bold text-center mb-16 text-black">
+          Featured Collection
+        </h2>
+
+        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-10">
+          <ProductCard name="Leather Jacket" price="₹4999" />
+          <ProductCard name="Slim Fit Jeans" price="₹1999" />
+          <ProductCard name="Minimal Watch" price="₹2999" />
+          <ProductCard name="Oversized Hoodie" price="₹1799" />
+        </div>
+      </section>
+
+      {/* 🧠 TRUST */}
+      <section className="py-28 text-center">
+        <h2 className="text-4xl font-bold mb-14 text-black">
+          Why NextGrid
+        </h2>
+
+        <div className="grid md:grid-cols-3 gap-12 text-gray-700 max-w-6xl mx-auto px-6">
+          <div>
+            <h3 className="font-semibold mb-3">Premium Fabric</h3>
+            <p>Luxury feel with durability.</p>
+          </div>
+
+          <div>
+            <h3 className="font-semibold mb-3">Modern Design</h3>
+            <p>Minimal yet bold identity.</p>
+          </div>
+
+          <div>
+            <h3 className="font-semibold mb-3">Fast Delivery</h3>
+            <p>Across India.</p>
           </div>
         </div>
       </section>
 
-      {/* 🚀 FINAL CTA */}
-      <section className="py-28 text-center bg-gray-100">
-        <h2 className="text-4xl font-bold mb-6">
-          Elevate Your Style Today
+      {/* 🚀 CTA */}
+      <section className="py-32 text-center">
+        <h2 className="text-4xl font-bold mb-6 text-black">
+          Upgrade Your Wardrobe
         </h2>
 
-        <p className="text-gray-600 mb-10">
-          Join a new generation of modern men.
+        <p className="text-gray-700 mb-10">
+          Join the next generation of modern men.
         </p>
 
         <Link
           href="/shop"
-          className="bg-black text-white px-10 py-4 rounded-xl font-medium hover:scale-105 transition"
+          className="bg-black text-white px-12 py-4 rounded-xl font-semibold hover:scale-105 transition"
         >
-          Shop Now
+          Start Shopping
         </Link>
       </section>
 

@@ -8,6 +8,7 @@ import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname() || "";
 
   const navLinks = [
@@ -18,7 +19,17 @@ export default function Navbar() {
     { name: "Contact", href: "/contact" },
   ];
 
-  // ✅ Safe scroll lock with cleanup
+  // 🔥 Scroll effect (premium feel)
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Scroll lock
   useEffect(() => {
     const original = document.body.style.overflow;
     document.body.style.overflow = open ? "hidden" : "auto";
@@ -34,116 +45,121 @@ export default function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-white/70 backdrop-blur-xl border-b shadow-sm">
-      <nav
-        className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16"
-        aria-label="Main Navigation"
+    <>
+      {/* 🔥 HEADER */}
+      <header
+        className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+          scrolled
+            ? "bg-white/80 backdrop-blur-xl shadow-lg"
+            : "bg-transparent"
+        }`}
       >
-        {/* 🔥 LOGO */}
-        <Link
-          href="/"
-          onClick={() => setOpen(false)}
-          className="flex items-center gap-3 group"
-        >
-          <Image
-            src="/favicon.ico"
-            alt="NextGrid Logo"
-            width={36}
-            height={36}
-            priority
-            className="rounded-md group-hover:scale-105 transition"
-          />
+        <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between h-20">
 
-          <span className="text-xl font-bold tracking-tight group-hover:opacity-80 transition">
-            NextGrid LifeStyle
-          </span>
-        </Link>
-
-        {/* 🖥️ DESKTOP MENU */}
-        <div className="hidden md:flex items-center gap-8 text-sm font-medium">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              className={`relative transition ${
-                isActive(link.href)
-                  ? "text-black"
-                  : "text-gray-500 hover:text-black"
-              }`}
-            >
-              {link.name}
-
-              {isActive(link.href) && (
-                <span className="absolute left-0 -bottom-1 w-full h-[2px] bg-black rounded-full" />
-              )}
-            </Link>
-          ))}
-        </div>
-
-        {/* 🔍 ACTIONS */}
-        <div className="hidden md:flex items-center gap-4">
-          <button
-            type="button"
-            aria-label="Search"
-            className="p-2 hover:bg-gray-100 rounded-full transition"
-          >
-            <Search size={20} />
-          </button>
-
+          {/* LOGO */}
           <Link
-            href="/cart"
-            aria-label="Cart"
-            className="relative p-2 hover:bg-gray-100 rounded-full transition"
+            href="/"
+            className="flex items-center gap-3 group"
+            onClick={() => setOpen(false)}
           >
-            <ShoppingBag size={20} />
-            <span className="absolute -top-1 -right-1 bg-black text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
-              2
+            <Image
+              src="/favicon.ico"
+              alt="logo"
+              width={38}
+              height={38}
+              className="rounded-lg group-hover:scale-110 transition"
+            />
+
+            <span className="text-xl font-semibold tracking-tight">
+              NextGrid LifeStyle
             </span>
           </Link>
 
-          <Link
-            href="/shop"
-            className="bg-black text-white px-5 py-2 rounded-xl text-sm font-medium hover:opacity-90 transition"
-          >
-            Shop Now
-          </Link>
-        </div>
+          {/* DESKTOP MENU */}
+          <div className="hidden md:flex items-center gap-10 text-sm font-medium">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                className="relative group"
+              >
+                <span
+                  className={`transition ${
+                    isActive(link.href)
+                      ? "text-black"
+                      : "text-gray-500 group-hover:text-black"
+                  }`}
+                >
+                  {link.name}
+                </span>
 
-        {/* 📱 MOBILE BUTTON */}
-        <button
-          type="button"
-          aria-label="Toggle Menu"
-          className="md:hidden p-2"
-          onClick={() => setOpen(!open)}
-        >
-          {open ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </nav>
+                {/* Animated underline */}
+                <span
+                  className={`absolute left-0 -bottom-1 h-[2px] bg-black transition-all duration-300 ${
+                    isActive(link.href)
+                      ? "w-full"
+                      : "w-0 group-hover:w-full"
+                  }`}
+                />
+              </Link>
+            ))}
+          </div>
+
+          {/* ACTIONS */}
+          <div className="hidden md:flex items-center gap-4">
+
+            <button type="button" title="Search" className="p-2 hover:bg-black/5 rounded-full transition">
+              <Search size={20} />
+            </button>
+
+            <Link
+              href="/cart"
+              className="relative p-2 hover:bg-black/5 rounded-full transition"
+            >
+              <ShoppingBag size={20} />
+              <span className="absolute -top-1 -right-1 bg-black text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+                2
+              </span>
+            </Link>
+
+            <Link
+              href="/shop"
+              className="bg-black text-white px-5 py-2 rounded-full text-sm font-medium hover:scale-105 transition"
+            >
+              Shop
+            </Link>
+          </div>
+
+          {/* MOBILE BUTTON */}
+          <button
+            className="md:hidden p-2"
+            onClick={() => setOpen(!open)}
+          >
+            {open ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </nav>
+      </header>
 
       {/* 📱 MOBILE MENU */}
       <div
-        className={`md:hidden fixed top-0 right-0 h-full w-[75%] bg-white shadow-xl transform transition-transform duration-300 z-50 ${
+        className={`fixed top-0 right-0 h-full w-[80%] bg-white backdrop-blur-xl shadow-2xl transform transition duration-300 z-50 ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex justify-between px-6 py-4 border-b">
+        <div className="flex justify-between px-6 py-5 border-b">
           <span className="font-bold text-lg">Menu</span>
-          <button
-            type="button"
-            aria-label="Close Menu"
-            onClick={() => setOpen(false)}
-          >
+          <button type="button" title="Close menu" onClick={() => setOpen(false)}>
             <X />
           </button>
         </div>
 
-        <div className="flex flex-col gap-6 px-6 py-6 text-lg font-medium">
+        <div className="flex flex-col gap-6 px-6 py-8 text-lg">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
               onClick={() => setOpen(false)}
-              className={`${
+              className={`transition ${
                 isActive(link.href)
                   ? "text-black font-semibold"
                   : "text-gray-600"
@@ -155,21 +171,21 @@ export default function Navbar() {
 
           <Link
             href="/shop"
-            className="bg-black text-white text-center py-3 rounded-xl mt-4"
             onClick={() => setOpen(false)}
+            className="bg-black text-white text-center py-3 rounded-full mt-4"
           >
             Shop Now
           </Link>
         </div>
       </div>
 
-      {/* 🌑 BACKDROP */}
+      {/* BACKDROP */}
       {open && (
         <div
-          className="fixed inset-0 bg-black/40 z-40 md:hidden"
+          className="fixed inset-0 bg-black/30 z-40 md:hidden"
           onClick={() => setOpen(false)}
         />
       )}
-    </header>
+    </>
   );
 }
