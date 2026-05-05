@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import type { Metadata, Viewport } from "next";
 import { ReactNode } from "react";
 import { Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next"; // ✅ ADDED
 
 // 🔤 FONT (Premium Look)
 const inter = Inter({
@@ -135,6 +136,9 @@ export default function RootLayout({
             }),
           }}
         />
+
+        {/* ✅ VERCEL ANALYTICS */}
+        <Analytics />
 
       </body>
     </html>
