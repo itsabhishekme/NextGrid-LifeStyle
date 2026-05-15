@@ -1,149 +1,240 @@
 import type { Metadata } from "next";
-import BlogCard from "@/components/BlogCard";
+
 import Link from "next/link";
 import Image from "next/image";
 
+import {
+  ArrowRight,
+  Sparkles,
+  Clock3,
+  TrendingUp,
+  Star,
+  Bookmark,
+  Eye,
+  MessageCircle,
+  Heart,
+  Share2,
+  Flame,
+  PenSquare,
+  Newspaper,
+  ChevronRight,
+} from "lucide-react";
+
+import BlogCard from "@/components/BlogCard";
+
 export const metadata: Metadata = {
-  title: "NextGrid Blog",
+  title: "NextGrid Journal",
   description:
-    "Explore NextGrid Lifestyle blog – fashion trends, style guides, and modern men's lifestyle insights.",
+    "Explore luxury fashion, premium streetwear, modern aesthetics, and curated lifestyle inspiration from NextGrid Lifestyle.",
 };
 
-export default function Blog() {
-  return (
-    <main className="relative overflow-hidden text-black">
+const categories = [
+  "All",
+  "Fashion",
+  "Streetwear",
+  "Luxury",
+  "Lifestyle",
+  "Accessories",
+  "Sneakers",
+  "Minimal",
+];
 
-      {/* 🌅 BACKGROUND */}
-      <div className="fixed inset-0 -z-10">
-        <Image
-          src="https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=2070"
-          alt="blog fashion"
-          fill
-          priority
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-white/70 backdrop-blur-sm" />
+const featuredPosts = [
+  {
+    title: "The Future Of Men’s Luxury Fashion",
+    image:
+      "https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=2000&auto=format&fit=crop",
+    tag: "Featured",
+  },
+  {
+    title: "Minimal Streetwear Aesthetics",
+    image:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1200&auto=format&fit=crop",
+    tag: "Trending",
+  },
+  {
+    title: "Luxury Fashion Inspiration",
+    image:
+      "https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=1200&auto=format&fit=crop",
+    tag: "Style Guide",
+  },
+];
+
+const trendingArticles = [
+  {
+    title: "Modern Fashion Identity",
+    image:
+      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop",
+  },
+  {
+    title: "The Rise Of Luxury Streetwear",
+    image:
+      "https://images.unsplash.com/photo-1523398002811-999ca8dec234?q=80&w=1200&auto=format&fit=crop",
+  },
+  {
+    title: "Minimal Accessories Guide",
+    image:
+      "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=1200&auto=format&fit=crop",
+  },
+];
+
+export default function BlogPage() {
+  return (
+    <main className="relative overflow-hidden bg-white text-black">
+
+      {/* BACKGROUND */}
+      <div className="absolute inset-0 -z-50 overflow-hidden">
+
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-50 via-white to-gray-100" />
+
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] bg-[size:80px_80px]" />
+
+        <div className="absolute left-0 top-0 h-[500px] w-[500px] rounded-full bg-gray-200 blur-3xl opacity-70" />
+
+        <div className="absolute bottom-0 right-0 h-[400px] w-[400px] rounded-full bg-gray-300 blur-3xl opacity-60" />
+
       </div>
 
-      {/* 🔥 HERO */}
-      <section className="py-28 text-center px-6">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-6xl font-extrabold mb-6">
-            NextGrid Journal
-          </h1>
-          <p className="text-lg text-gray-700">
-            Fashion insights, trends, and modern lifestyle stories.
-          </p>
-        </div>
-      </section>
+      {/* HERO */}
+      <section className="relative px-6 pb-28 pt-36">
 
-      {/* 🧭 CATEGORY FILTER */}
-      <section className="max-w-6xl mx-auto px-6 py-6 flex flex-wrap justify-center gap-4">
-        {["All", "Fashion", "Lifestyle", "Trends"].map((cat, i) => (
-          <button
-            key={i}
-            className={`px-5 py-2 rounded-full text-sm transition ${
-              i === 0
-                ? "bg-black text-white"
-                : "bg-white/60 backdrop-blur border hover:bg-black hover:text-white"
-            }`}
-          >
-            {cat}
-          </button>
-        ))}
-      </section>
+        <div className="mx-auto max-w-7xl">
 
-      {/* ✨ FEATURED ARTICLE */}
-      <section className="max-w-6xl mx-auto px-6 py-16">
+          <div className="grid items-center gap-20 lg:grid-cols-2">
 
-        <div className="relative h-[420px] rounded-3xl overflow-hidden shadow-xl group">
-          <Image
-            src="https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=2070"
-            alt="featured article"
-            fill
-            className="object-cover group-hover:scale-105 transition duration-700"
-          />
+            {/* LEFT */}
+            <div>
 
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+              <div className="mb-8 inline-flex items-center gap-3 rounded-full border border-gray-200 bg-white px-5 py-3 shadow-sm">
 
-          <div className="absolute bottom-8 left-8 text-white max-w-xl">
-            <p className="text-sm uppercase tracking-wider mb-2">
-              Featured Story
-            </p>
+                <Sparkles size={16} />
 
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              The Future of Men’s Fashion in 2026
-            </h2>
+                <span className="text-xs uppercase tracking-[0.3em] text-gray-700">
+                  NextGrid Journal
+                </span>
 
-            <Link
-              href="#"
-              className="inline-block bg-white text-black px-6 py-2 rounded-lg font-medium hover:scale-105 transition"
-            >
-              Read Article →
-            </Link>
+              </div>
+
+              <h1 className="mb-8 text-5xl font-black leading-[0.95] tracking-tight sm:text-6xl md:text-7xl">
+
+                Fashion
+                <br />
+
+                <span className="text-gray-400">
+                  Stories &
+                </span>
+
+                <br />
+
+                Inspiration
+
+              </h1>
+
+              <p className="mb-10 max-w-2xl text-lg leading-relaxed text-gray-600">
+                Explore modern streetwear, luxury aesthetics,
+                premium lifestyle inspiration, and curated fashion insights.
+              </p>
+
+              <div className="flex flex-col gap-5 sm:flex-row">
+
+                <Link
+                  href="/shop"
+                  className="group inline-flex items-center justify-center gap-3 rounded-2xl bg-black px-8 py-4 font-bold text-white transition duration-500 hover:scale-105"
+                >
+                  Explore Fashion
+
+                  <ArrowRight
+                    size={18}
+                    className="transition group-hover:translate-x-1"
+                  />
+
+                </Link>
+
+                <Link
+                  href="#latest"
+                  className="inline-flex items-center justify-center gap-3 rounded-2xl border border-gray-300 bg-white px-8 py-4 font-semibold transition duration-500 hover:bg-black hover:text-white"
+                >
+                  Latest Articles
+                </Link>
+
+              </div>
+
+            </div>
+
+            {/* RIGHT */}
+            <div className="relative hidden lg:block">
+
+              <div className="relative overflow-hidden rounded-[40px] border border-gray-200 shadow-2xl">
+
+                <Image
+                  src={featuredPosts[0].image}
+                  alt={featuredPosts[0].title}
+                  width={700}
+                  height={900}
+                  priority
+                  className="h-[720px] w-full object-cover"
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+
+                <div className="absolute bottom-10 left-10 max-w-lg text-white">
+
+                  <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-white/10 px-5 py-3 backdrop-blur-xl">
+
+                    <TrendingUp size={16} />
+
+                    <span className="text-sm">
+                      Featured Article
+                    </span>
+
+                  </div>
+
+                  <h2 className="mb-5 text-4xl font-black leading-tight">
+                    The Future Of Premium Streetwear
+                  </h2>
+
+                  <Link
+                    href="#"
+                    className="inline-flex items-center gap-3 rounded-2xl bg-white px-6 py-3 font-semibold text-black transition hover:scale-105"
+                  >
+                    Read Story
+
+                    <ArrowRight size={16} />
+
+                  </Link>
+
+                </div>
+
+              </div>
+
+            </div>
+
           </div>
+
         </div>
 
       </section>
 
-      {/* 📝 BLOG GRID */}
-      <section className="max-w-7xl mx-auto px-6 py-16">
-        <h2 className="text-3xl font-bold mb-12 text-center">
-          Latest Articles
-        </h2>
+      {/* CATEGORY */}
+      <section className="px-6 pb-14">
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
-          <BlogCard title="Men Fashion 2026" />
-          <BlogCard title="Minimal Style Guide" />
-          <BlogCard title="Streetwear Trends" />
-          <BlogCard title="Best Outfit Ideas" />
-          <BlogCard title="Wardrobe Essentials" />
-          <BlogCard title="Luxury vs Streetwear" />
-        </div>
-      </section>
+        <div className="mx-auto flex max-w-7xl flex-wrap justify-center gap-4">
 
-      {/* 🧠 NEWSLETTER */}
-      <section className="py-24 text-center px-6">
-        <div className="max-w-xl mx-auto p-10 rounded-3xl bg-white/60 backdrop-blur-xl shadow-xl">
-
-          <h2 className="text-3xl font-bold mb-4">
-            Stay Inspired
-          </h2>
-
-          <p className="text-gray-600 mb-6">
-            Get weekly fashion insights and style tips.
-          </p>
-
-          <form className="flex flex-col sm:flex-row gap-3">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-4 py-3 rounded-xl border focus:outline-none focus:ring-2 focus:ring-black"
-            />
-
-            <button className="bg-black text-white px-6 py-3 rounded-xl hover:scale-105 transition">
-              Subscribe
+          {categories.map((category, index) => (
+            <button
+              key={category}
+              className={`rounded-full px-6 py-3 text-sm font-medium transition duration-500 ${
+                index === 0
+                  ? "bg-black text-white"
+                  : "border border-gray-300 bg-white text-black hover:bg-black hover:text-white"
+              }`}
+            >
+              {category}
             </button>
-          </form>
+          ))}
+
         </div>
-      </section>
 
-      {/* 🚀 CTA */}
-      <section className="py-28 text-center">
-        <h2 className="text-4xl font-bold mb-6">
-          Upgrade Your Style
-        </h2>
-
-        <p className="text-gray-700 mb-10">
-          Explore our latest collections and redefine your fashion.
-        </p>
-
-        <Link
-          href="/shop"
-          className="bg-black text-white px-10 py-4 rounded-xl font-medium hover:scale-105 transition shadow-lg"
-        >
-          Shop Now
-        </Link>
       </section>
 
     </main>
