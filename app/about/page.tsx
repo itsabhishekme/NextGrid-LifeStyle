@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-
 import Link from "next/link";
 import Image from "next/image";
 
@@ -23,29 +22,42 @@ import {
   Watch,
   BadgeCheck,
   Layers3,
+  Globe2,
+  Wallet,
+  ScanFace,
+  Diamond,
+  Footprints,
+  Baby,
+  UserRound,
+  TrendingUp,
 } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About NextGrid Lifestyle",
   description:
-    "Premium men's fashion brand inspired by modern luxury, minimalism, confidence, and timeless identity.",
+    "Welcome to NextGrid Style where fashion meets purpose, luxury, confidence, and modern individuality.",
 };
 
 const values = [
   {
     icon: <ShieldCheck className="h-8 w-8" />,
     title: "Premium Quality",
-    desc: "Luxury fabrics crafted with precision and comfort.",
+    desc: "Luxury fabrics designed for durability, comfort, and elevated everyday wear.",
   },
   {
     icon: <Sparkles className="h-8 w-8" />,
     title: "Modern Design",
-    desc: "Minimal silhouettes inspired by modern culture.",
+    desc: "Minimal aesthetics inspired by global fashion and future lifestyle culture.",
   },
   {
     icon: <Crown className="h-8 w-8" />,
     title: "Luxury Identity",
-    desc: "Fashion created for confidence and individuality.",
+    desc: "Fashion created for confidence, ambition, and self-expression.",
+  },
+  {
+    icon: <Globe2 className="h-8 w-8" />,
+    title: "Global Inspiration",
+    desc: "Contemporary trends influenced by worldwide fashion movements.",
   },
 ];
 
@@ -64,7 +76,7 @@ const stats = [
   },
   {
     number: "24/7",
-    label: "Support",
+    label: "Dedicated Support",
   },
 ];
 
@@ -72,49 +84,80 @@ const collections = [
   {
     title: "Luxury Streetwear",
     image:
-      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200",
+      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1400",
   },
   {
     title: "Modern Essentials",
     image:
-      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1200",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1400",
   },
   {
-    title: "Urban Luxury",
+    title: "Urban Elegance",
     image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1200",
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1400",
   },
+];
+
+const categories = [
+  {
+    title: "Men's Fashion",
+    icon: <UserRound className="h-7 w-7" />,
+    image:
+      "https://images.unsplash.com/photo-1490578474895-699cd4e2cf59?q=80&w=1400",
+  },
+  {
+    title: "Women's Elegance",
+    icon: <Diamond className="h-7 w-7" />,
+    image:
+      "https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1400",
+  },
+  {
+    title: "Kids Collection",
+    icon: <Baby className="h-7 w-7" />,
+    image:
+      "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?q=80&w=1400",
+  },
+];
+
+const highlights = [
+  "Minimal Modern Aesthetics",
+  "Premium Luxury Fabrics",
+  "Global Streetwear Inspiration",
+  "Comfort For Everyday Lifestyle",
+  "Designed For Every Generation",
+  "Luxury Meets Confidence",
 ];
 
 export default function About() {
   return (
     <main className="relative overflow-hidden bg-white text-black">
 
-      {/* ====================================================== */}
-      {/* 🌤 BACKGROUND */}
-      {/* ====================================================== */}
+      {/* ================================================= */}
+      {/* BACKGROUND */}
+      {/* ================================================= */}
 
       <div className="absolute inset-0 -z-20 overflow-hidden">
 
         <div className="absolute inset-0 bg-gradient-to-b from-gray-50 via-white to-gray-100" />
 
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] bg-[size:80px_80px]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] bg-[size:90px_90px]" />
 
         <div className="absolute left-[-10%] top-0 h-[500px] w-[500px] rounded-full bg-gray-200 blur-3xl opacity-70" />
 
-        <div className="absolute bottom-0 right-[-10%] h-[500px] w-[500px] rounded-full bg-gray-300 blur-3xl opacity-60" />
+        <div className="absolute bottom-[-10%] right-[-10%] h-[600px] w-[600px] rounded-full bg-gray-300 blur-3xl opacity-60" />
 
       </div>
 
-      {/* ====================================================== */}
-      {/* 🚀 HERO */}
-      {/* ====================================================== */}
+      {/* ================================================= */}
+      {/* HERO SECTION */}
+      {/* ================================================= */}
 
       <section className="relative z-10 px-6 py-36">
 
         <div className="mx-auto grid max-w-7xl items-center gap-20 lg:grid-cols-2">
 
-          {/* LEFT */}
+          {/* LEFT CONTENT */}
+
           <div>
 
             <div className="mb-8 inline-flex items-center gap-3 rounded-full border border-gray-200 bg-white px-6 py-3 shadow-sm">
@@ -122,14 +165,14 @@ export default function About() {
               <Sparkles className="h-5 w-5" />
 
               <span className="text-sm uppercase tracking-[0.3em] text-gray-700">
-                Premium Men's Fashion
+                Future Lifestyle Fashion
               </span>
 
             </div>
 
             <h1 className="mb-10 text-6xl font-black leading-[0.9] tracking-tight md:text-8xl">
 
-              About
+              Welcome
               <br />
 
               <span className="bg-gradient-to-r from-black via-gray-500 to-black bg-clip-text text-transparent">
@@ -139,19 +182,36 @@ export default function About() {
             </h1>
 
             <p className="max-w-2xl text-lg leading-relaxed text-gray-600 md:text-xl">
-              Premium streetwear and luxury essentials crafted
-              for modern men who lead with confidence,
-              individuality, and timeless identity.
+
+              Welcome to NextGrid Style, where fashion meets
+              purpose and individuality defines the future.
+              Designed for the modern generation, NextGrid
+              curates a seamless blend of comfort, confidence,
+              and creativity across every category of life —
+              from men’s essentials to women’s elegance and
+              little ones’ charm.
+
+            </p>
+
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-gray-500">
+
+              NextGrid Lifestyle brings forward-thinking
+              fashion for people who believe style is more
+              than appearance — it’s an attitude. Every piece
+              is crafted with premium fabrics, modern luxury,
+              and timeless identity inspired by global trends.
+
             </p>
 
             {/* BUTTONS */}
+
             <div className="mt-12 flex flex-wrap gap-5">
 
               <Link
                 href="/shop"
                 className="inline-flex items-center gap-3 rounded-2xl bg-black px-10 py-5 font-bold text-white transition-all duration-500 hover:scale-105"
               >
-                Shop Collection
+                Explore Collection
 
                 <ArrowRight className="h-5 w-5" />
 
@@ -161,52 +221,53 @@ export default function About() {
                 href="/collections"
                 className="rounded-2xl border border-gray-300 bg-white px-10 py-5 font-semibold transition-all duration-500 hover:bg-black hover:text-white"
               >
-                Explore More
+                View Categories
               </Link>
 
             </div>
 
-            {/* MINI FEATURES */}
-            <div className="mt-14 grid gap-5 sm:grid-cols-3">
+            {/* MINI CARDS */}
 
-              <div className="rounded-3xl border border-gray-200 bg-white p-5 shadow-lg">
+            <div className="mt-16 grid gap-5 sm:grid-cols-3">
 
-                <Shirt className="mb-4 h-8 w-8" />
+              <div className="rounded-[30px] border border-gray-200 bg-white p-6 shadow-xl">
 
-                <h3 className="mb-2 font-bold">
-                  Modern Fashion
+                <Shirt className="mb-5 h-8 w-8" />
+
+                <h3 className="mb-2 text-lg font-bold">
+                  Premium Fashion
                 </h3>
 
-                <p className="text-sm text-gray-500">
-                  Minimal premium aesthetics.
+                <p className="text-sm leading-relaxed text-gray-500">
+                  Minimal silhouettes with luxury comfort.
                 </p>
 
               </div>
 
-              <div className="rounded-3xl border border-gray-200 bg-white p-5 shadow-lg">
+              <div className="rounded-[30px] border border-gray-200 bg-white p-6 shadow-xl">
 
-                <Watch className="mb-4 h-8 w-8" />
+                <Gem className="mb-5 h-8 w-8" />
 
-                <h3 className="mb-2 font-bold">
+                <h3 className="mb-2 text-lg font-bold">
                   Luxury Identity
                 </h3>
 
-                <p className="text-sm text-gray-500">
-                  Designed for confidence.
+                <p className="text-sm leading-relaxed text-gray-500">
+                  Designed for confidence and ambition.
                 </p>
 
               </div>
 
-              <div className="rounded-3xl border border-gray-200 bg-white p-5 shadow-lg">
+              <div className="rounded-[30px] border border-gray-200 bg-white p-6 shadow-xl">
 
-                <BadgeCheck className="mb-4 h-8 w-8" />
+                <TrendingUp className="mb-5 h-8 w-8" />
 
-                <h3 className="mb-2 font-bold">
-                  Trusted Brand
+                <h3 className="mb-2 text-lg font-bold">
+                  Future Trends
                 </h3>
 
-                <p className="text-sm text-gray-500">
-                  Loved by thousands globally.
+                <p className="text-sm leading-relaxed text-gray-500">
+                  Inspired by modern culture and lifestyle.
                 </p>
 
               </div>
@@ -215,22 +276,23 @@ export default function About() {
 
           </div>
 
-          {/* RIGHT */}
+          {/* RIGHT IMAGE */}
+
           <div className="relative">
 
-            <div className="relative overflow-hidden rounded-[45px] border border-gray-200 shadow-[0_40px_120px_rgba(0,0,0,0.15)]">
+            <div className="relative overflow-hidden rounded-[50px] border border-gray-200 shadow-[0_40px_120px_rgba(0,0,0,0.15)]">
 
               <Image
                 src="https://images.unsplash.com/photo-1520975661595-6453be3f7070?q=80&w=2070"
-                alt="NextGrid Fashion"
+                alt="NextGrid Lifestyle"
                 width={1200}
                 height={1500}
                 priority
                 unoptimized
-                className="h-[750px] w-full object-cover"
+                className="h-[800px] w-full object-cover"
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
               <div className="absolute bottom-10 left-10 text-white">
 
@@ -239,15 +301,15 @@ export default function About() {
                   <Crown className="h-4 w-4" />
 
                   <span className="text-sm">
-                    Luxury Identity
+                    Modern Luxury Fashion
                   </span>
 
                 </div>
 
                 <h2 className="text-5xl font-black leading-tight">
-                  Modern
-                  <br />
                   Fashion
+                  <br />
+                  Meets Purpose
                 </h2>
 
               </div>
@@ -255,6 +317,7 @@ export default function About() {
             </div>
 
             {/* FLOATING CARD */}
+
             <div className="absolute -left-10 bottom-16 rounded-[35px] border border-gray-200 bg-white p-8 shadow-2xl">
 
               <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-black text-white">
@@ -264,17 +327,18 @@ export default function About() {
               </div>
 
               <h3 className="mb-3 text-2xl font-black">
-                Premium Brand
+                Premium Lifestyle
               </h3>
 
               <p className="max-w-[220px] text-sm leading-relaxed text-gray-500">
-                Crafted for modern men who value confidence
-                and timeless luxury.
+                Built for confidence, creativity, and timeless
+                individuality.
               </p>
 
             </div>
 
             {/* FLOATING ICON */}
+
             <div className="absolute -right-5 top-10 rounded-3xl bg-black p-5 text-white shadow-2xl">
 
               <Flame className="h-8 w-8" />
@@ -287,13 +351,13 @@ export default function About() {
 
       </section>
 
-      {/* ====================================================== */}
-      {/* ⚡ STATS */}
-      {/* ====================================================== */}
+      {/* ================================================= */}
+      {/* STATS */}
+      {/* ================================================= */}
 
-      <section className="relative z-10 mx-auto max-w-7xl px-6 py-24">
+      <section className="relative z-10 mx-auto max-w-7xl px-6 py-20">
 
-        <div className="grid gap-8 rounded-[40px] border border-gray-200 bg-white p-12 shadow-2xl md:grid-cols-4">
+        <div className="grid gap-8 rounded-[45px] border border-gray-200 bg-white p-12 shadow-2xl md:grid-cols-4">
 
           {stats.map((item, index) => (
             <div
@@ -316,29 +380,31 @@ export default function About() {
 
       </section>
 
-      {/* ====================================================== */}
-      {/* 🧠 STORY */}
-      {/* ====================================================== */}
+      {/* ================================================= */}
+      {/* STORY */}
+      {/* ================================================= */}
 
       <section className="relative z-10 mx-auto max-w-7xl px-6 py-36">
 
         <div className="grid items-center gap-20 lg:grid-cols-2">
 
           {/* IMAGE */}
+
           <div className="relative overflow-hidden rounded-[45px] border border-gray-200 shadow-2xl">
 
             <Image
-              src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1600"
-              alt="Brand Story"
+              src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1600"
+              alt="NextGrid Story"
               width={1200}
               height={1500}
               unoptimized
-              className="h-[700px] w-full object-cover"
+              className="h-[750px] w-full object-cover"
             />
 
           </div>
 
           {/* CONTENT */}
+
           <div>
 
             <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-gray-200 bg-white px-5 py-3 shadow-sm">
@@ -346,38 +412,40 @@ export default function About() {
               <Eye className="h-5 w-5" />
 
               <span className="text-sm uppercase tracking-[0.3em]">
-                Our Story
+                Our Vision
               </span>
 
             </div>
 
             <h2 className="mb-8 text-5xl font-black leading-tight md:text-7xl">
 
-              Fashion
+              Style
               <br />
-              Meets Identity
+              Beyond Fashion
 
             </h2>
 
             <p className="mb-6 text-lg leading-relaxed text-gray-600">
-              NextGrid Lifestyle was born from a vision to
-              redefine men's fashion through confidence,
-              minimalism, and modern luxury aesthetics.
+
+              NextGrid Lifestyle was created to redefine
+              modern fashion through confidence, innovation,
+              and elevated identity. Every collection is
+              designed to reflect ambition, comfort, and
+              individuality.
+
             </p>
 
-            <p className="mb-12 text-lg leading-relaxed text-gray-500">
-              Every collection is designed to blend timeless
-              elegance with elevated streetwear culture for
-              modern lifestyles.
+            <p className="mb-10 text-lg leading-relaxed text-gray-500">
+
+              From everyday essentials to statement fashion,
+              NextGrid blends timeless elegance with modern
+              luxury aesthetics inspired by global culture.
+
             </p>
 
             <div className="space-y-5">
 
-              {[
-                "Luxury Fashion Experience",
-                "Premium Modern Streetwear",
-                "Minimal Timeless Identity",
-              ].map((item, index) => (
+              {highlights.map((item, index) => (
                 <div
                   key={index}
                   className="flex items-center gap-4"
@@ -404,9 +472,79 @@ export default function About() {
 
       </section>
 
-      {/* ====================================================== */}
-      {/* 💎 VALUES */}
-      {/* ====================================================== */}
+      {/* ================================================= */}
+      {/* CATEGORY SECTION */}
+      {/* ================================================= */}
+
+      <section className="relative z-10 px-6 py-32">
+
+        <div className="mx-auto max-w-7xl">
+
+          <div className="mb-24 text-center">
+
+            <p className="mb-4 text-sm uppercase tracking-[0.3em] text-gray-500">
+              Lifestyle Categories
+            </p>
+
+            <h2 className="text-5xl font-black md:text-7xl">
+              Fashion For Everyone
+            </h2>
+
+          </div>
+
+          <div className="grid gap-10 lg:grid-cols-3">
+
+            {categories.map((item, index) => (
+              <div
+                key={index}
+                className="group relative overflow-hidden rounded-[40px] border border-gray-200 shadow-2xl"
+              >
+
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  width={1200}
+                  height={1500}
+                  unoptimized
+                  className="h-[650px] w-full object-cover transition duration-700 group-hover:scale-110"
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+
+                <div className="absolute bottom-10 left-10 text-white">
+
+                  <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 backdrop-blur-xl">
+
+                    {item.icon}
+
+                  </div>
+
+                  <h3 className="mb-5 text-4xl font-black">
+                    {item.title}
+                  </h3>
+
+                  <button className="inline-flex items-center gap-3 rounded-2xl bg-white px-7 py-4 font-semibold text-black transition hover:scale-105">
+
+                    Explore Collection
+
+                    <ArrowRight className="h-5 w-5" />
+
+                  </button>
+
+                </div>
+
+              </div>
+            ))}
+
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* ================================================= */}
+      {/* VALUES */}
+      {/* ================================================= */}
 
       <section className="relative z-10 px-6 py-36">
 
@@ -415,16 +553,16 @@ export default function About() {
           <div className="mb-24 text-center">
 
             <p className="mb-4 text-sm uppercase tracking-[0.3em] text-gray-500">
-              Core Values
+              Why Choose Us
             </p>
 
             <h2 className="text-5xl font-black md:text-7xl">
-              Why NextGrid
+              Built For Modern Lifestyle
             </h2>
 
           </div>
 
-          <div className="grid gap-10 lg:grid-cols-3">
+          <div className="grid gap-10 lg:grid-cols-4">
 
             {values.map((item, index) => (
               <div
@@ -455,9 +593,9 @@ export default function About() {
 
       </section>
 
-      {/* ====================================================== */}
-      {/* 🛍 COLLECTIONS */}
-      {/* ====================================================== */}
+      {/* ================================================= */}
+      {/* COLLECTIONS */}
+      {/* ================================================= */}
 
       <section className="relative z-10 mx-auto max-w-7xl px-6 py-36">
 
@@ -468,7 +606,7 @@ export default function About() {
           </p>
 
           <h2 className="text-5xl font-black md:text-7xl">
-            Premium Fashion
+            Discover NextGrid
           </h2>
 
         </div>
@@ -487,7 +625,7 @@ export default function About() {
                 width={1200}
                 height={1500}
                 unoptimized
-                className="h-[650px] w-full object-cover transition duration-700 group-hover:scale-110"
+                className="h-[700px] w-full object-cover transition duration-700 group-hover:scale-110"
               />
 
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
@@ -500,7 +638,7 @@ export default function About() {
 
                 <button className="inline-flex items-center gap-3 rounded-2xl bg-white px-7 py-4 font-semibold text-black transition hover:scale-105">
 
-                  Explore
+                  Explore Now
 
                   <ArrowRight className="h-5 w-5" />
 
