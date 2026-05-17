@@ -1,4 +1,4 @@
-package com.nextgrid.app;
+package com.nextgrid.lifestyle;
 
 import com.getcapacitor.BridgeActivity;
 

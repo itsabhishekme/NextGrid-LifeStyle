@@ -1,8 +1,8 @@
 import type { CapacitorConfig } from "@capacitor/cli";
 
 const config: CapacitorConfig = {
-  appId: "com.nextgrid.app",
-  appName: "NextGrid",
+  appId: "com.nextgrid.lifestyle",
+  appName: "NextGrid LifeStyle",
   webDir: "out",
 };
 
