@@ -130,7 +130,7 @@ export default function Navbar() {
             >
               <div className="relative overflow-hidden rounded-2xl">
                 <Image
-                  src="/favicon.ico"
+                  src="/logo/nextgrid-lifestyle.png"
                   alt="logo"
                   width={44}
                   height={44}
