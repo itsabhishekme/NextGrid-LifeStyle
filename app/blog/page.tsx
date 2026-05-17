@@ -6,18 +6,7 @@ import Image from "next/image";
 import {
   ArrowRight,
   Sparkles,
-  Clock3,
   TrendingUp,
-  Star,
-  Bookmark,
-  Eye,
-  MessageCircle,
-  Heart,
-  Share2,
-  Flame,
-  PenSquare,
-  Newspaper,
-  ChevronRight,
 } from "lucide-react";
 
 import BlogCard from "@/components/BlogCard";

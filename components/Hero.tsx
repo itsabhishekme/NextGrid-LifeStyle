@@ -7,23 +7,14 @@ import { motion } from "framer-motion";
 
 import {
   ArrowRight,
-  Star,
   ShoppingBag,
   Sparkles,
   Crown,
-  Heart,
-  ShieldCheck,
-  Truck,
-  Gem,
   Flame,
-  Play,
-  Eye,
   Award,
   Shirt,
   Watch,
   Glasses,
-  Layers3,
-  ChevronRight,
 } from "lucide-react";
 
 const heroStats = [

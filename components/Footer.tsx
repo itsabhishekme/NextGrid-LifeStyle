@@ -16,13 +16,6 @@ import {
   HeartHandshake,
   BadgeCheck,
   Crown,
-  Gem,
-  ShoppingBag,
-  Star,
-  Flame,
-  ScanFace,
-  Layers3,
-  CreditCard,
 } from "lucide-react";
 
 import {
