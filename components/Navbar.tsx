@@ -98,27 +98,13 @@ export default function Navbar() {
 
   return (
     <>
-      {/* TOP BAR */}
-      <div className="fixed top-0 left-0 w-full z-[60] bg-black text-white text-xs tracking-wide">
-        <div className="max-w-7xl mx-auto px-6 h-9 flex items-center justify-between">
-          <p className="uppercase">
-            Free Shipping On Orders Above ₹1999
-          </p>
-
-          <div className="hidden md:flex items-center gap-6">
-            <Link href="/track-order">Track Order</Link>
-            <Link href="/support">Support</Link>
-          </div>
-        </div>
-      </div>
 
       {/* MAIN NAVBAR */}
       <header
-        className={`fixed left-0 w-full z-50 transition-all duration-500 ${
-          scrolled
+        className={`fixed left-0 w-full z-50 transition-all duration-500 ${scrolled
             ? "top-0 bg-white/70 backdrop-blur-2xl shadow-2xl border-b border-black/5"
             : "top-9 bg-transparent"
-        }`}
+          }`}
       >
         <nav className="max-w-7xl mx-auto px-6">
           <div className="h-24 flex items-center justify-between">
@@ -159,11 +145,10 @@ export default function Navbar() {
                 >
                   <Link
                     href={link.href}
-                    className={`flex items-center gap-1 text-sm font-medium transition-all duration-300 ${
-                      isActive(link.href)
+                    className={`flex items-center gap-1 text-sm font-medium transition-all duration-300 ${isActive(link.href)
                         ? "text-black"
                         : "text-gray-500 hover:text-black"
-                    }`}
+                      }`}
                   >
                     {link.name}
 
@@ -177,11 +162,10 @@ export default function Navbar() {
 
                   {/* UNDERLINE */}
                   <span
-                    className={`absolute left-0 -bottom-2 h-[2px] bg-black transition-all duration-300 ${
-                      isActive(link.href)
+                    className={`absolute left-0 -bottom-2 h-[2px] bg-black transition-all duration-300 ${isActive(link.href)
                         ? "w-full"
                         : "w-0 group-hover:w-full"
-                    }`}
+                      }`}
                   />
 
                   {/* DROPDOWN */}
@@ -271,11 +255,10 @@ export default function Navbar() {
 
       {/* SEARCH MODAL */}
       <div
-        className={`fixed inset-0 bg-black/50 backdrop-blur-sm z-[80] transition duration-300 ${
-          searchOpen
+        className={`fixed inset-0 bg-black/50 backdrop-blur-sm z-[80] transition duration-300 ${searchOpen
             ? "opacity-100 visible"
             : "opacity-0 invisible"
-        }`}
+          }`}
       >
         <div className="flex items-start justify-center pt-40 px-6">
           <div className="bg-white rounded-3xl shadow-2xl w-full max-w-3xl p-8">
@@ -310,11 +293,10 @@ export default function Navbar() {
 
       {/* MOBILE SIDEBAR */}
       <div
-        className={`fixed top-0 right-0 h-full w-[85%] max-w-sm bg-white z-[90] shadow-2xl transition-all duration-500 ${
-          open
+        className={`fixed top-0 right-0 h-full w-[85%] max-w-sm bg-white z-[90] shadow-2xl transition-all duration-500 ${open
             ? "translate-x-0"
             : "translate-x-full"
-        }`}
+          }`}
       >
         <div className="flex items-center justify-between px-6 h-24 border-b">
 
@@ -342,11 +324,10 @@ export default function Navbar() {
               key={link.name}
               href={link.href}
               onClick={() => setOpen(false)}
-              className={`py-4 border-b border-gray-100 text-lg transition ${
-                isActive(link.href)
+              className={`py-4 border-b border-gray-100 text-lg transition ${isActive(link.href)
                   ? "font-bold text-black"
                   : "text-gray-600"
-              }`}
+                }`}
             >
               {link.name}
             </Link>

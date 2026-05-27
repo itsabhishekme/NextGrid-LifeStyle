@@ -161,25 +161,7 @@ export const viewport: Viewport = {
   colorScheme: "light",
 };
 
-// ✨ PREMIUM BADGES
-const features = [
-  {
-    icon: <Sparkles className="h-4 w-4" />,
-    text: "Luxury Streetwear",
-  },
-  {
-    icon: <ShieldCheck className="h-4 w-4" />,
-    text: "Secure Shopping",
-  },
-  {
-    icon: <ShoppingBag className="h-4 w-4" />,
-    text: "Premium Collection",
-  },
-  {
-    icon: <Globe className="h-4 w-4" />,
-    text: "Worldwide Style",
-  },
-];
+
 
 // 🏗️ ROOT LAYOUT
 export default function RootLayout({
@@ -217,23 +199,6 @@ export default function RootLayout({
           <div className="absolute left-[-10%] top-0 h-[400px] w-[400px] rounded-full bg-neutral-200/40 blur-3xl" />
 
           <div className="absolute bottom-0 right-[-10%] h-[400px] w-[400px] rounded-full bg-neutral-300/30 blur-3xl" />
-        </div>
-
-        {/* ========================================================= */}
-        {/* ✨ ANNOUNCEMENT BAR */}
-        {/* ========================================================= */}
-        <div className="relative z-50 hidden border-b border-neutral-200 bg-black text-white lg:block">
-          <div className="mx-auto flex max-w-7xl items-center justify-center gap-8 px-6 py-3 text-xs font-medium tracking-wide">
-            {features.map((item, index) => (
-              <div
-                key={index}
-                className="flex items-center gap-2 text-neutral-200"
-              >
-                {item.icon}
-                <span>{item.text}</span>
-              </div>
-            ))}
-          </div>
         </div>
 
         {/* ========================================================= */}
@@ -354,7 +319,7 @@ export default function RootLayout({
         {/* ⚡ PERFORMANCE + ANALYTICS */}
         {/* ========================================================= */}
         <Analytics />
-        
+
 
         {/* ========================================================= */}
         {/* 🎯 NOSCRIPT FALLBACK */}
