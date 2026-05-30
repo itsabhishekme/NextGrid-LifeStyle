@@ -294,7 +294,7 @@ export default function Footer() {
             <div className="relative">
 
               <Image
-                src="/favicon.ico"
+                src="/logo/nextgrid-lifestyle.png"
                 alt="NextGrid Logo"
                 width={80}
                 height={80}
